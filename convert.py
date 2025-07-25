@@ -9,10 +9,8 @@ from natsort import natsorted
 INPUT_DIR = "gifs"
 OUTPUT_DIR = "output"
 
-# Create output directory if not exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# List and sort all gif files
 all_files = os.listdir(INPUT_DIR)
 gif_files = natsorted([f for f in all_files if f.lower().endswith(".gif")])
 
@@ -20,7 +18,6 @@ if not gif_files:
     print("No GIF files found in the input directory.")
     exit(1)
 
-# Convert each GIF to MP4
 for gif_file in gif_files:
     gif_path = os.path.join(INPUT_DIR, gif_file)
     output_filename = os.path.splitext(gif_file)[0] + ".mp4"
